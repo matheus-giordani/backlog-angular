@@ -1,0 +1,54 @@
+<div class="tab-pane fade show active" id="geral" role="tabpanel" aria-labelledby="geral-tab">
+    <!-- inicio formulario -->
+    <form [formGroup]="geralForm" (ngSubmit)="onSubmit()">
+        <!-- primeira linha do formulario -->
+        <div class="row g-3">
+            <div class="col">
+                <label for="numero" class="form-label">Número (nnn/aaaa)</label>
+                <input type="text" class="form-control" id="numero" formControlName='numero'>
+            </div>
+            <div class="col">
+                <label for="prestador" class="form-label">Prestador</label>
+                <input type="text" class="form-control" id="prestador" formControlName='prestador'>
+            </div>
+            <div class="col">
+                <label for="valor" class="form-label">Valor</label>
+                <input type="number" class="form-control" id="valor" formControlName="valor">
+            </div>
+
+        </div>
+        <!--fim da primeira linha do formulario -->
+        <!-- segunda linha do formulario -->
+        <div class="row g-3">
+            <div class="col">
+                <label for="inicio_vigencia" class="form-label">Início da vigência</label>
+                <input type="date" class="form-control" id="inicio_vigencia" formControlName="inicio_vigencia">
+            </div>
+            <div class="col">
+                <label for="termino_vigencia" class="form-label">Termino da vigencia</label>
+                <input type="date" class="form-control" id="termino_vigencia" formControlName="termino_vigencia">
+            </div>
+        </div>
+        <div class="row g-3">
+            <div class="col">
+                <label for="objeto" class="form-label pt-3">Objeto</label>
+                <textarea class="form-control " placeholder="Leave a comment here" id="objeto" style="height: 200px"
+                    formControlName="descricao"></textarea>
+            </div>
+
+        </div>
+
+
+        <!-- fim da segunda linha do formulario -->
+        <div class="row g-3 mt-4">
+            <button type="submit" class="btn btn-primary" [disabled]="!geralForm.valid">
+                <!--condição se formulario geral não for valido disabilitar -->
+                Submit
+            </button>
+            <p>Form status: {{geralForm.status}} </p>
+
+
+
+        </div>
+    </form>
+    <!-- fim formulario -->
