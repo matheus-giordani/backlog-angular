@@ -1,2 +1,2 @@
 # backlog-angular
-implementando o backlong usando a plataforma angular
+implementando o backlog usando a plataforma angular
