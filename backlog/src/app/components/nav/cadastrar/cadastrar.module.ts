@@ -15,7 +15,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ItensComponent,
     ProjetosComponent,
     HomeComponent,
-    GeralComponent
+    GeralComponent,
+
 
   ],
   imports: [
@@ -27,5 +28,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
   ]
+
+
 })
 export class CadastrarModule { }

@@ -5,7 +5,7 @@
         <div class="row g-3">
             <div class="col">
                 <label for="numero" class="form-label">Número (nnn/aaaa)</label>
-                <input type="text" class="form-control" id="numero" formControlName='numero'>
+                <input type="number" class="form-control" id="numero" formControlName='numero'>
             </div>
             <div class="col">
                 <label for="prestador" class="form-label">Prestador</label>
@@ -41,11 +41,11 @@
 
         <!-- fim da segunda linha do formulario -->
         <div class="row g-3 mt-4">
-            <button type="submit" class="btn btn-primary" [disabled]="!geralForm.valid">
+            <button type="submit" class="btn btn-primary" [disabled]="!geralForm.valid" routerLink="/listar">
                 <!--condição se formulario geral não for valido disabilitar -->
                 Submit
             </button>
-            <p>Form status: {{geralForm.status}} </p>
+
 
 
 
