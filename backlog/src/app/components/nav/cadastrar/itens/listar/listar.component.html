@@ -1,0 +1,142 @@
+<div class="card">
+
+    <div class="card-header">
+        <div class="d-flex justify-content-between">
+            <div class="d-flex align-items-center">
+                <h5 class="card-title">Itens</h5>
+
+            </div>
+
+            <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#cadastroModal">
+                <i class="bi bi-plus-lg"></i>
+
+
+
+            </button>
+
+
+        </div>
+    </div>
+    <table class="table table-striped">
+        <thead>
+            <!-- nome das colunas -->
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Serviço</th>
+                <th scope="col">Quantidade</th>
+                <th scope="col">Valor Unitário</th>
+                <th scope="col">Valor total</th>
+
+            </tr>
+        </thead>
+        <!--conteudo das linhas -->
+        <tbody>
+            <tr *ngFor="let f of componentsItens; let i=index;">
+                <th scope="row">{{f.id}}</th>
+                <th>{{f.servico}}</th>
+                <td>{{f.quantidade}}</td>
+                <td>{{f.valor_unitario}}</td>
+                <td>{{f.valor_total}}</td>
+
+                <td>
+                    <button type="button" class="btn btn-primary" (click)="edit(f.id)" data-bs-toggle="modal"
+                        data-bs-target="#editModal">
+                        <i class="bi bi-pencil-square"></i>
+
+
+                    </button>
+                    <button class="btn btn-danger" (click)="del(f,i)">
+                        <i class="bi bi-trash-fill"></i>
+                    </button>
+
+                </td>
+            </tr>
+
+        </tbody>
+        <tfoot>
+            <tr>
+                <th scope="row">TOTAL</th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th>{{somaTotal}}</th>
+
+
+            </tr>
+        </tfoot>
+    </table>
+
+</div>
+
+
+
+
+
+
+<!-- Modal cadastro -->
+<div class="modal fade" id="cadastroModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Cadastrar Item</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <app-itens></app-itens>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- modal edit -->
+
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Editar Item</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form *ngIf="editFormItens" [formGroup]="editFormItens" (ngSubmit)="onSubmit()">
+                    <!-- primeira linha do formulario -->
+                    <div class="row g-3">
+                        <div class="col">
+                            <label for="servico" class="form-label">Serviço</label>
+                            <input type="text" class="form-control" id="servico" formControlName="servico">
+                        </div>
+                        <div class="col">
+                            <label for="quantidade" value="0" class="form-label">Quantidade</label>
+                            <input type="number" class="form-control" id="quantidade" formControlName="quantidade">
+                        </div>
+
+                        <div class="row g-3">
+
+                            <div class="col">
+                                <label for="valor" value="0" class="form-label ">Valor Unitário</label>
+
+                                <input type="number" class="form-control " id="valor" formControlName="valor_unitario">
+
+                            </div>
+
+                            <div class="col">
+                                <label for="valor" value="0" class="form-label ">Valor Total</label>
+
+                                <input type="number" class="form-control " id="valor" formControlName="valor_total"
+                                    readonly>
+
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="pt-3">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>

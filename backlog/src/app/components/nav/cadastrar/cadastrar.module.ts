@@ -8,6 +8,7 @@ import { ProjetosComponent } from './projetos/projetos.component';
 import { HomeComponent } from './home/home.component';
 import { GeralComponent } from './geral/geral.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ListarComponent } from './itens/listar/listar.component';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ProjetosComponent,
     HomeComponent,
     GeralComponent,
+    ListarComponent,
 
 
   ],

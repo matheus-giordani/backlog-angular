@@ -16,21 +16,21 @@ export class ListarComponent implements OnInit {
   componentsGeral!: structGeral[];
   constructor(private geralService: GeralService,
     private location: Location) { }
-  private geralUrl = 'http://localhost:3000/contrato'
+
 
   ngOnInit(): void {
-    this.geralService.getAll(this.geralUrl).subscribe(f => this.componentsGeral = f)
+    this.geralService.getAll().subscribe(f => this.componentsGeral = f)
   }
 
   del(item: structGeral, idx: number) {
     if (confirm("Deseja excluir este item?")) {
-      this.geralService.delete(item, this.geralUrl).subscribe(_ => this.componentsGeral.splice(idx, 1))
+      this.geralService.delete(item).subscribe(_ => this.componentsGeral.splice(idx, 1))
 
     }
 
   }
   edit(id: number) {
-    this.geralService.get(id, this.geralUrl).subscribe(f => this.creatForm(f))
+    this.geralService.get(id).subscribe(f => this.creatForm(f))
 
 
   }
@@ -48,7 +48,7 @@ export class ListarComponent implements OnInit {
 
   onSubmit() {
     const newRegister = this.editForm.value;
-    this.geralService.update(newRegister, this.geralUrl)
+    this.geralService.update(newRegister)
       .subscribe(_ => this.goBack());
     this.goBack()//pra fazer ele ir e voltar pra mesma pagina
 

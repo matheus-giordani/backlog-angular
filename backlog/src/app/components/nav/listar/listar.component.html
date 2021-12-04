@@ -56,12 +56,14 @@
                                 <td>{{ f.termino_vigencia }}</td>
                                 <td>
                                 <td>
-                                    <button type="button" class="btn btn-success" data-bs-toggle="modal"
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                         data-bs-target="#exampleModal" (click)="edit(f.id)">
-                                        Edit
+                                        <i class="bi bi-pencil-square"></i>
+
 
                                     </button>
-                                    <button class="btn btn-danger" (click)="del(f,i)">Delete</button>
+                                    <button class="btn btn-danger" (click)="del(f,i)"><i
+                                            class="bi bi-trash-fill"></i></button>
                                 </td>
 
 

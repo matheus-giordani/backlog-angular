@@ -46,9 +46,13 @@ export class GeralComponent implements OnInit {
 
 
   onSubmit() {
+
+
     const newRegister = this.geralForm.value;
-    this.geralService.create(newRegister, this.geralUrl)
+    this.geralService.create(newRegister)
       .subscribe();
+
+
 
 
 
